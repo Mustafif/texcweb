@@ -1,0 +1,12 @@
+[package]
+name = "texcweb"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+reqwest = "0.11.14"
+rocket = "0.5.0-rc.2"
+texcreate_repo = { git = "https://github.com/MKProj/texcreate_repo", version = "0.1.0" }
+tokio = { version = "1.25.0", features = ["full"] }
