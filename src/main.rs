@@ -6,15 +6,22 @@ use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 
 // Current release number
-static CURR: u64 = 0;
+fn current() -> u64{
+    0
+}
 
 #[get("/repo/latest")]
 async fn get_latest() -> String{
-    format!("{CURR}")
+    format!("{}", current())
+}
+
+#[get("/")]
+fn index() -> String{
+    "Under construction".to_string()
 }
 
 #[launch]
 fn rocket() -> _{
     rocket::build()
-        .mount("/", routes![get_latest])
+        .mount("/", routes![index, get_latest])
 }
