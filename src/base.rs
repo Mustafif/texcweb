@@ -73,7 +73,7 @@ pub const BASE: &str = r#"
 
 <table class="w3-table-all w3-margin-top" id="myTable">
 <tr>
-<th style="width:60%;">Templates</th>
+<th style="width:60%;">Template Name</th>
 <th style="width:40%;">Description</th>
 </tr>
 {templates}
