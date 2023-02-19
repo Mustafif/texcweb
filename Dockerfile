@@ -1,6 +1,6 @@
 FROM rust:latest
-WORKDIR .
+WORKDIR /home
 COPY . .
-RUN cargo build --release
+RUN cargo build texcweb --release
 EXPOSE 8000
 CMD ["target/release/texcweb"]

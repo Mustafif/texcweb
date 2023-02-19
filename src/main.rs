@@ -1,12 +1,11 @@
-use rocket::response::Redirect;
-use rocket::fs::NamedFile;
+mod repos;
+mod base;
+use rocket::fs::{FileServer, NamedFile};
 use rocket::{launch, get, routes};
-use texcreate_repo::Repo;
-use tokio::fs::File;
-use tokio::io::AsyncWriteExt;
+use crate::repos::build_index;
 
 // Current release number
-fn current() -> u64{
+pub(crate) fn current() -> u64{
     0
 }
 
@@ -16,12 +15,17 @@ async fn get_latest() -> String{
 }
 
 #[get("/")]
-fn index() -> String{
-    "Under construction".to_string()
+async fn index() -> Option<NamedFile>{
+    match build_index().await.ok(){
+        Some(()) => (),
+        None => return None,
+    }
+    NamedFile::open("index.html").await.ok()
 }
 
 #[launch]
 fn rocket() -> _{
     rocket::build()
         .mount("/", routes![index, get_latest])
+        .mount("/assets", FileServer::from("static"))
 }
