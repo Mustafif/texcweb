@@ -46,8 +46,6 @@ pub const BASE: &str = r#"
         <a href="https://github.com/MKProj/texcreate" class="w3-bar-item w3-button">Github</a>
         <a href="https://crates.io/crates/texcreate" class="w3-bar-item w3-button">Crates.io</a>
         <a href="https://mkproj.com" class="w3-bar-item w3-button">MKProjects</a>
-        <a href="https://texcdocs.mkproj.com" class="w3-bar-item w3-button">Documentation</a>
-        <a href="/rss" class="w3-bar-item w3-button">RSS</a>
     </div>
 </div>
 <!-- Page content -->
