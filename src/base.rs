@@ -43,7 +43,7 @@ pub const BASE: &str = r#"
 <!-- Navbar on small screens -->
 <div class="w3-center w3-light-grey w3-padding-16 w3-hide-large w3-hide-medium">
     <div class="w3-bar w3-light-grey">
-        <a href="https://github.com/MKProj/texcreate-v3" class="w3-bar-item w3-button">Github</a>
+        <a href="https://github.com/MKProj/texcreate" class="w3-bar-item w3-button">Github</a>
         <a href="https://crates.io/crates/texcreate" class="w3-bar-item w3-button">Crates.io</a>
         <a href="https://mkproj.com" class="w3-bar-item w3-button">MKProjects</a>
         <a href="https://texcdocs.mkproj.com" class="w3-bar-item w3-button">Documentation</a>
