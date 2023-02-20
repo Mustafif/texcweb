@@ -49,7 +49,7 @@ impl Release{
             version: repo.version(),
             num: repo.num(),
             info: repo.info(),
-            link: link(repo.num())
+            link: link(repo.version())
         }
     }
     pub fn as_current(&self) -> CurrentRelease{
