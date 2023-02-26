@@ -53,7 +53,7 @@ pub const BASE: &str = r#"
     <div class="w3-center">
         <h1>Guides</h1>
         <hr>
-        <p><a href="">Getting Started with TexCreate!</a></p>
+        <p><a href="https://mkproj.github.io/texcreate/">Getting Started with TexCreate!</a></p>
         <p><a href="">Creating Templates with TexCGen!</a></p>
     </div>
     <br>
