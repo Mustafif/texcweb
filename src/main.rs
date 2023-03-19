@@ -6,7 +6,7 @@ use crate::repos::build_index;
 
 // Current release number
 pub(crate) fn current() -> u64{
-    1
+    2
 }
 
 #[get("/repo/latest")]
