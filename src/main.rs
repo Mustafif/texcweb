@@ -18,6 +18,11 @@ async fn get_latest() -> String{
     format!("{}", current())
 }
 
+#[get("/sh")]
+async fn sh() -> Option<NamedFile>{
+    NamedFile::open("texcreate-install.sh").await.ok()
+}
+
 #[get("/create")]
 async fn build_texc() -> Option<NamedFile>{
     match texc_v3_web::build_index(Some("texcreate.html".to_string()), Some(Mode::Light)).await.ok(){
@@ -49,6 +54,6 @@ async fn index() -> Option<NamedFile>{
 #[launch]
 fn rocket() -> _{
     rocket::build()
-        .mount("/", routes![index, get_latest, build_texc, create_proj])
+        .mount("/", routes![index, sh, get_latest, build_texc, create_proj])
         .mount("/assets", FileServer::from("static"))
 }
