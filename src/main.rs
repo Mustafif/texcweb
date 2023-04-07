@@ -23,11 +23,17 @@ async fn get_latest() -> String {
 #[get("/sh")]
 async fn sh() -> Option<NamedFile> {
     let s = r#"
-    #!/bin/sh 
+    #!/bin/sh
+    echo "Enter password"
     sudo -s 
     echo "deb [arch=amd64, trusted=yes] https://mkproj.github.io/texcreate-deb texcreate-deb main" >> /etc/apt/sources.list
-    apt-get update && apt-get upgrade 
-    apt-get install texcreate   
+    apt-get update && apt-get upgrade
+    echo "Installing TexCreate..."
+    apt-get install texcreate -y
+    echo "Setting up autocomplete..."
+    apt-get install bash-completion -y
+    texcreate gen-complete --shell bash
+    mv texcreate.bash /usr/share/bash-completion/completions/
     "#;
     let mut f = File::create("texcreate-install.sh").await.unwrap();
     f.write_all(s.as_bytes()).await.unwrap();
