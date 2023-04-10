@@ -4,6 +4,7 @@ use std::collections::HashMap;
 use texcreate_repo::Repo;
 use tokio::fs::File;
 use tokio::io::{AsyncWriteExt, Result};
+use crate::blog::Posts;
 
 fn link(version: u64) -> String {
     format!("https://github.com/MKProj/mkproj_texcgen/releases/tag/v{version}")
@@ -106,6 +107,9 @@ pub async fn build_index() -> Result<()> {
     base = base.replace("{}", &curr.version.to_string());
     base = base.replace("{releases}", releases.to_html().as_str());
     base = base.replace("{templates}", curr.to_html().as_str());
+    let posts = Posts::new()?;
+    let posts_data = posts.build().await?;
+    base = base.replace("{posts}", &posts_data);
     let mut file = File::create("index.html").await?;
     file.write_all(base.as_bytes()).await?;
     Ok(())

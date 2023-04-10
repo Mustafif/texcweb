@@ -1,0 +1,77 @@
+[[posts]]
+issue = 1
+title = "TexCreate Blog"
+date = "2022-04-10"
+content = """
+<p><strong>Hello World!</strong> I am happy to introduce the first issue of the TexCreate blog posts which will be used to serve as a way to get the latest news of the TexCreate project. I plan on giving monthly updated as seen in other projects which will be a great way to show the different changes for the different TexCreate projects.</p>
+
+<p>As I am happy to announce the release of the third major version of TexCreate, it can be difficult to rewrite a whole project while still trying to keep the core concepts so those migrating won&#8217;t be too lost. Although I will admit that this version is a lot different compared to the difference between version 1 to 2, hell that migration literally had a <code>migrate</code> command.</p>
+
+<p>This version introduced the largest workspace we have seen in TexCreate, to get a better idea, here&#8217;s a quick summary of what each repo does taken from the <a href='https://github.com/MKProj/texc_v3_sources'>texc_v3_sources</a> repo.</p>
+
+<ul>
+<li>
+<p><a href='https://github.com/MKProj/texcgen'>texcgen</a></p>
+
+<ul>
+<li>A Template Generator for TexCreate.</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texcreate'>texcreate</a></p>
+
+<ul>
+<li>A LaTeX Project Creator.</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texcweb'>texcweb</a></p>
+
+<ul>
+<li>Manages the TexCreate web service</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/mkproj_texcgen'>mkproj_texcgen</a></p>
+
+<ul>
+<li>A Template Generator customized for the MKProject first party templates.</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texcreate_repo'>texcreate_repo</a></p>
+
+<ul>
+<li>Provides the <code>Repo</code> type for TexCreate, a way to manage template releases.</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texcore'>texcore</a></p>
+
+<ul>
+<li>Create LaTeX using native Rust types (provides TexCreate <code>Template</code> type).</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texcreate_v3_compiler_conf'>texcreate_v3_compiler_conf</a></p>
+
+<ul>
+<li>Provides the <code>Compiler</code> type for TexCreate and related projects.</li>
+</ul>
+</li>
+
+<li>
+<p><a href='https://github.com/MKProj/texc_v3_web'>texc_v3_web</a></p>
+
+<ul>
+<li>Provides a local web application to build TexCreate projects.</li>
+</ul>
+</li>
+</ul>
+"""

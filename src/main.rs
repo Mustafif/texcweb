@@ -1,5 +1,6 @@
 mod base;
 mod repos;
+mod blog;
 
 use crate::repos::build_index;
 use rocket::form::Form;
@@ -8,6 +9,7 @@ use rocket::{get, launch, post, routes};
 use tokio::fs::File;
 use tokio::io::AsyncWriteExt;
 use std::future::Future;
+use std::path::PathBuf;
 use texc_v3_web::{Mode, WebConfig};
 
 // Current release number
@@ -62,6 +64,13 @@ async fn create_proj(input: Form<WebConfig>) -> Option<NamedFile> {
     }
 }
 
+#[get("/blog/<title>")]
+async fn blog_(title: String) -> Option<NamedFile>{
+    let file_name = format!("{title}.html");
+    let path = PathBuf::from("blog_views").join(&file_name);
+    NamedFile::open(path).await.ok()
+}
+
 #[get("/")]
 async fn index() -> Option<NamedFile> {
     match build_index().await.ok() {
@@ -74,6 +83,6 @@ async fn index() -> Option<NamedFile> {
 #[launch]
 fn rocket() -> _ {
     rocket::build()
-        .mount("/", routes![index, sh, get_latest, build_texc, create_proj])
+        .mount("/", routes![index, sh, get_latest, build_texc, create_proj, blog_])
         .mount("/assets", FileServer::from("static"))
 }
