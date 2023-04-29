@@ -14,7 +14,7 @@ use texc_v3_web::{Mode, WebConfig};
 
 // Current release number
 pub(crate) fn current() -> u64 {
-    2
+    3
 }
 
 #[get("/repo/latest")]
